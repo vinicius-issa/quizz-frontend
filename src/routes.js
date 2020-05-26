@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { isAuthenticated } from "./services/auth";
 import Login from "./components/Login"
 import Question from "./components/Question"
+import Result from "./components/Result"
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -20,8 +21,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = (props) => (
   <BrowserRouter>
     <Switch>
-      <PrivateRoute path="/question/:user/" component={(props)=><Question {...props} /> } />
+      <PrivateRoute path="/question/" component={(props)=><Question {...props} /> } />
       <Route path="/signin" component={(props)=><Login {...props}/>} />
+      <PrivateRoute path="/result" component={(props)=><Result {...props}/>} />
       <Route path="*" component={() => <h1>Página não encontrada</h1>} />
     </Switch>
   </BrowserRouter>
