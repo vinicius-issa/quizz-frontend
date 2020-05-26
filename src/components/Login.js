@@ -20,13 +20,15 @@ export default props => {
             login(userId,username);
             props.history.push('/question/'+userId);
         }catch(error){
-            alert("Usuario já cadastrado. Favor entrar com outro username");
+            alert("Que pena, esse username já existe. Favor entrar com um novo");
             setUsername('');
         }
     }
 
     return ( 
-    <Container maxWidth="xs">
+    <Container maxWidth="xs" className="center">
+        <h2>Bem Vindo!</h2>
+        <h4>Participe agora mesmo do nosso Quizz! É só escolher um novo username e pronto. Vamos la?</h4>
         <form onSubmit={handleSubmit}>
             <FormControl fullWidth={true}>
                 <InputLabel htmlFor="email">Username</InputLabel>
