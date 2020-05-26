@@ -6,7 +6,8 @@ import { Container, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup,
 export default props => {
     let username = getUser()
     let userId = getToken()
-
+    const [counterAnswered, setCounterAnswered] = useState(0)
+    const [counterAll, setCounterAll] = useState(0);
     const [question, setQuestion] = useState([]);
     const [choice, setChoice] = useState(0);
 
@@ -27,7 +28,7 @@ export default props => {
             choice_id:choice
         }
         try{
-            let response = await api.post('answer/', data);
+            await api.post('answer/', data);
             window.location.reload(false);
         }catch(error){
             console.error(error);
@@ -39,22 +40,25 @@ export default props => {
     useEffect(() => {
         const getQuestions = async () => {
             let response = await api.get(`question/${userId}/`);
-            console.log(response.data['unanswered']);
             let unanswered = response.data['unanswered'];
-            if(unanswered.length>0)
+            let answered = response.data['answered'];
+            if(unanswered.length>0){
                 setQuestion(sortQuestion(unanswered));
+                setCounterAnswered(answered.length + 1);
+                setCounterAll(answered.length + unanswered.length);
+            }
             else
                 props.history.push('/result');
         }
         getQuestions();
-    },[setQuestion, userId]);
+    },[setQuestion, userId, props.history, setCounterAll, setCounterAnswered]);
 
     
 
     return (
-        <Container>
-            Hello {username}
-            <h1>{question.question} - {choice}</h1>
+        <Container className="center" maxWidth='sm'>
+            <h4>Ola {username}. Vamos para a questão {counterAnswered} de {counterAll}</h4>
+            <h1>{question.question}</h1>
             <form onSubmit={handleSubmit}>
                 <FormControl component="fieldset">
                 <FormLabel component="legend">Alternativas:</FormLabel>
