@@ -18,7 +18,7 @@ export default props => {
             let response = await api.post('signup/',{username});
             let userId = response.data.user_id;
             login(userId,username);
-            props.history.push('/question/'+userId);
+            props.history.push('/');
         }catch(error){
             alert("Que pena, esse username já existe. Favor entrar com um novo");
             setUsername('');

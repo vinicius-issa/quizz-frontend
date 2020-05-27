@@ -21,7 +21,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = (props) => (
   <BrowserRouter>
     <Switch>
-      <PrivateRoute path="/question/" component={(props)=><Question {...props} /> } />
+      <PrivateRoute exact={true} path="/" component={(props)=><Question {...props} /> } />
       <Route path="/signin" component={(props)=><Login {...props}/>} />
       <PrivateRoute path="/result" component={(props)=><Result {...props}/>} />
       <Route path="*" component={() => <h1>Página não encontrada</h1>} />
