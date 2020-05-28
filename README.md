@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# App Quizz
+## App developed for the iClinic Technical Challenge
 
-## Available Scripts
+### Installation
+For the installation of the Quizz App, it is necessary to have the packages: Git, NPM and Node (v12.16.1). If you are using Linux/Ubuntu, do:
 
-In the project directory, you can run:
+```
+sudo apt-get update
+sudo apt-get install git 
+sudo apt-get install nodejs
+sudo apt-get install npm
+```
 
-### `npm start`
+Download the souce code from git:
+```
+git clone https://github.com/vinicius-issa/quizz-frontend.git
+cd quizz-frontend
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Now, create a  ```.env``` file in root with server address:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```
+REACT_APP_SERVER_ADDRESS=<YOUR_BACKEND_ADDRESS>
+REACT_APP_SERVER_TOKEN=userId
+```
 
-### `npm test`
+If you don't have our server running, you can download it [here](https://github.com/vinicius-issa/quizz_backend)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Fine, let's go install the dependeces and run the app:
+```
+npm install
+npm start
+```
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+That's all, folks. Enjoy
